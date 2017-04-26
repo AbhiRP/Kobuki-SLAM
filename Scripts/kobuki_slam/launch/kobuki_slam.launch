@@ -12,7 +12,10 @@
 
   <node pkg="kobuki_tf" type="kobuki_tf" name="kobuki_tf" output="screen">
   </node>
-
+    
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find laser_scan)/rviz/laser_scan.rviz">
+  </node>
+  
   <node pkg="gmapping" type="slam_gmapping" name="kobuki_slam_gmapping" output="screen">
     <param name="base_frame" value="base_footprint"/>
     <param name="odom_frame" value="odom"/>
