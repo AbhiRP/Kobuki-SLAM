@@ -13,7 +13,7 @@
   <node pkg="kobuki_tf" type="kobuki_tf" name="kobuki_tf" output="screen">
   </node>
     
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find laser_scan)/rviz/laser_scan.rviz">
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find kobuki_slam)/rviz/kobuki_slam.rviz">
   </node>
   
   <node pkg="gmapping" type="slam_gmapping" name="kobuki_slam_gmapping" output="screen">
