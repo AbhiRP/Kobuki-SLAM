@@ -19,7 +19,7 @@ Map of Autonomous Control Engineering (ACE) - West Campus Laboratory was created
 
 ### Implementation:
 
-Two new ROS packages named kobuki_slam and Kobuki_tf were created. kobuki_tf broadcasts the transform between base_link and camera_link of Kobuki Turtlebot.
+Two new ROS packages named `kobuki_slam` and `kobuki_tf` were created. `kobuki_tf` broadcasts the transform between `base_link` and `camera_link` of Kobuki Turtlebot.
 
 <p align="center">
   <img src = "Images/afl_map.jpg" width="500" />
