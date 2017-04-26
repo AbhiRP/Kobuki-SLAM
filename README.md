@@ -17,3 +17,10 @@ Map of Autonomous Control Engineering (ACE) - West Campus Laboratory was created
 2. depthimage_to_laserscan http://wiki.ros.org/depthimage_to_laserscan
 3. gmapping http://wiki.ros.org/gmapping
 
+### Implementation:
+
+Two new ROS packages named kobuki_slam and Kobuki_tf were created. kobuki_tf broadcasts the transform between base_link and camera_link of Kobuki Turtlebot.
+
+<p align="center">
+  <img src = "Images/afl_map.jpg" width="500" />
+</p>
