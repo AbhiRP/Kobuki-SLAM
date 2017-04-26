@@ -1,0 +1,49 @@
+<launch>
+    
+  <!--include file="$(find kobuki_description)/launch/view_model.launch"-->
+  <!--/include-->
+  
+  <include file="$(find openni2_launch)/launch/openni2.launch">
+  </include>
+
+  <node name="depthimage_to_laserscan" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" > 
+    <remap from="image" to="/camera/depth/image_raw"/>
+  </node> 
+
+  <node pkg="kobuki_tf" type="kobuki_tf" name="kobuki_tf" output="screen">
+  </node>
+
+  <node pkg="gmapping" type="slam_gmapping" name="kobuki_slam_gmapping" output="screen">
+    <param name="base_frame" value="base_footprint"/>
+    <param name="odom_frame" value="odom"/>
+    <param name="map_update_interval" value="0.5"/>
+    <param name="maxUrange" value="10.0"/>
+    <param name="sigma" value="0.05"/>
+    <param name="kernelSize" value="1"/>
+    <param name="lstep" value="0.05"/>
+    <param name="astep" value="0.05"/>
+    <param name="iterations" value="5"/>
+    <param name="lsigma" value="0.075"/>
+    <param name="ogain" value="3.0"/>
+    <param name="lskip" value="0"/>
+    <param name="srr" value="0.01"/>
+    <param name="srt" value="0.02"/>
+    <param name="str" value="0.01"/>
+    <param name="stt" value="0.02"/>
+    <param name="linearUpdate" value="0.001"/>
+    <param name="angularUpdate" value="0.002"/>
+    <param name="temporalUpdate" value="0.5"/>
+    <param name="resampleThreshold" value="0.5"/>
+    <param name="particles" value="500"/>
+    <param name="xmin" value="-10.0"/>
+    <param name="ymin" value="-10.0"/>
+    <param name="xmax" value="10.0"/>
+    <param name="ymax" value="10.0"/>
+    <param name="delta" value="0.03"/>
+    <param name="llsamplerange" value="0.15"/>
+    <param name="llsamplestep" value="0.15"/>
+    <param name="lasamplerange" value="0.55"/>
+    <param name="lasamplestep" value="0.55"/>
+    </node>
+</launch>
+
