@@ -66,7 +66,7 @@ The scanning and map created can be viewed in Rviz. Rviz subscribes to _map_ top
 Map created after scanning ACE West Campus Lab:
 
 <p align="center">
-  <img src = "Images/afl_map.jpg" width="500" />
+  <img src = "Images/map.png"/>
 </p>
 
 Reference: https://github.com/oroca/oroca-ros-pkg
