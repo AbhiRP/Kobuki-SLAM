@@ -37,8 +37,25 @@ roslaunch kobuki_slam kobuki_slam.launch
 ```
 The `kobuki_slam.launch` file contains code to search and activate OPENNI2 ROS launch file `openni2.launch` which is used to connect to OpenNI-compliant devices such as the Asus Xtion. After the camera feed is running, `depthimage_to_laserscan` package is executed, remapping the subscribed topic from _image_ to _/camera/depth/image_raw_. `depthimage_to_laserscan`  takes a depth image and generates a 2D laser scan based on the provided parameters and publish it under _scan_ topic. `tf_broadcaster.cpp` script from `kobuki_tf` ROS package will be initiated through the SLAM launch file. After all the requried nodes and topics are activated, `gmapping` ROS package is activated. Some of the parameters of `gmapping` were changed from its default values for this project.
 
+* _~map_update_interval_ (default: 5.0): How long (in seconds) between updates to the map. Lowered from 5.0 to 0.5, since the SLAM process is run on a laptop with decent computational power.
+* _~maxUrange_ (default: 80.0): The maximum usable range of the laser. Changed to 10.
+* _~linearUpdate_ (default: 1.0): Process a scan each time the robot translates this far. Changed to 0.001.
+* _~angularUpdate_ (default: 0.5): Process a scan each time the robot rotates this far. Changed to 0.002.
+* _~temporalUpdate_ (default: -1.0): Process a scan if the last scan processed is older than the update time in seconds. A value less than zero will turn time based updates off. Changed to 0.5.
+* _~particles_ (default: 30): Number of particles in the filter. Increased to 500.
+* Initial Map Size
+  * _~xmin_:Changed from -100.0 to -10.0
+  * _~ymin_:Changed from -100.0 to -10.0
+  * _~xmax_:Changed from 100.0 to 10.0
+  * _~ymax_:Changed from 100.0 to 10.0
+* _~delta_ (default: 0.05): Resolution of the map. Changed to 0.03
+* ~llsamplerange (default:0.01): Translational sampling range for the likelihood. Increased to 0.15.
+* ~llsamplestep (default:0.01): Translational sampling step for the likelihood. Increased to 0.15. 
+* ~lasamplerange (default:0.005): Angular sampling range for the likelihood. Increased to 0.55.
+* ~lasamplestep (default:0.005): Angular sampling step for the likelihood. Increased to 0.55.
 
-The scanning and map created can be viewed in Rviz.
+
+The scanning and map created can be viewed in Rviz. Rviz subscribes to _map_ topic published from `gmapping` ROS package. 
 
 <p align="center">
    <img src = "Images/SLAM_mapping_1.png">
