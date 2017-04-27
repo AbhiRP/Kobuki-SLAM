@@ -63,7 +63,11 @@ The scanning and map created can be viewed in Rviz. Rviz subscribes to _map_ top
    <img src = "Images/SLAM_mapping_2.png">
 </p>
 
-Map created after scanning ACE West Campus Lab:
+After mapping is finished, the created map can be saved to a file using `map_saver` service.
+```
+rosrun map_server map_saver
+```
+This will save the map to a file in your home directory called map.pgm. Map created after scanning ACE West Campus Lab:
 
 <p align="center">
   <img src = "Images/map.png"/>
