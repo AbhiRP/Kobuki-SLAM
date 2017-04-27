@@ -68,3 +68,5 @@ Map created after scanning ACE West Campus Lab:
 <p align="center">
   <img src = "Images/afl_map.jpg" width="500" />
 </p>
+
+Reference: https://github.com/oroca/oroca-ros-pkg
