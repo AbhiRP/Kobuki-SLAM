@@ -63,7 +63,7 @@ The scanning and map created can be viewed in Rviz. Rviz subscribes to _map_ top
    <img src = "Images/SLAM_mapping_2.png">
 </p>
 
-After mapping is finished, the created map can be saved to a file using `map_saver` service.
+The kobuki is moved around the environment using `keyop` for mapping. After mapping is finished, the created map can be saved to a file using `map_saver` service.
 ```
 rosrun map_server map_saver
 ```
